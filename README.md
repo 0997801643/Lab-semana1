@@ -8,10 +8,12 @@ dojo/datasets/master/titanic.csv>
 uv sync
 uv run pytest -q
 uv run python main.py
-## Hallazgos
+## Hallazgos A
 ¿por qué uv sync puede reconstruir el entorno aunque .venv/ no esté versionado en el repositorio? ¿Qué archivo se
 lo permite y qué guarda exactamente ese archivo? Dos líneas bastan.
 Debido a que toda la información del entorno se encuentra en el uv.lock, lo que permite al uv.sync recrear el .venv
+¿qué diferencia hay entre correr pytest a secas y uv run pytest?
+Que al correr pytest a secas se referencia de lo que tengas activo en el PATH del terminal ya que estaria por fuera del entorno virtual, al correr uv run pytest se interpreta las versiones exactas gracias al .venv del proyecto y las versiones definidas en el uv.lock 
 
 ## Decisiones de limpieza
 Eliminar columna Cabin debido a un 77% de nulos: no se puede imputar de forma confiable un porcentaje tan alto de datos faltantes, así que se elimina la columna en vez de las filas.
