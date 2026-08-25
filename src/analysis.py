@@ -19,3 +19,4 @@ def top_k(df, columna, k):
 def recta_minimos_cuadrados(x, y):
     A = np.vstack([x, np.ones(len(x))]).T
     return np.linalg.lstsq(A, y)[0]
+
